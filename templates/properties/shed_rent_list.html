@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+
+{% block menu %}
+<div id="navigation">
+				<ul id="nav" class="sf-menu">
+					<li><a href="{% url index %}" >Inicio</a></li>
+                    <li><a href="#" class="current">Alquiler</a>
+						<ul>
+							<li><a href="{% url house_rent_list %}">Casa</a></li>
+							<li><a href="{% url departament_rent_list %}">Departamento</a></li>
+                            <li><a href="{% url office_rent_list %}">Oficinas</a></li>
+							<li><a href="{% url land_rent_list %}">Campos</a></li>
+                            <li><a href="{% url shed_rent_list %}">Galpones</a></li>
+                            <li><a href="{% url localbusiness_rent_list %}">Loc. Comerciales</a></li>
+						</ul>
+					</li>
+                    
+                    <li><a href="#" >Venta</a>
+						<ul>
+							<li><a href="{% url house_sale_list %}">Casa</a></li>
+							<li><a href="{% url departament_sale_list %}">Departamento</a></li>
+                            <li><a href="{% url office_sale_list %}">Oficinas</a></li>
+							<li><a href="{% url land_sale_list %}">Campos</a></li>
+                            <li><a href="{% url shed_sale_list %}">Galpones</a></li>
+                            <li><a href="{% url localbusiness_sale_list %}">Loc. Comerciales</a></li>
+						</ul>
+						
+					</li>
+                    
+                    <li><a href="#">Oportunidades</a>
+						<ul>
+							<li><a href="#">Emprendimientos</a></li>
+							<li><a href="#">Fideicomisos</a></li>
+                            <li><a href="#">Loteos</a></li>
+							<li><a href="#">Fondos de Com.</a></li>
+						</ul>
+					</li>
+                    
+                    <li><a href="#">Inmobiliarias</a></li>
+                    
+                    <li><a href="#">Contacto</a></li>
+				   
+				</ul>
+			</div><!-- end #navigation-->
+{% endblock %}
+
+
+
+{% block content %}
+<div id="content">
+            
+                
+				<h2 class="underline">Galpones Venta</h2>
+                <div class="ubicacion" > <a href="{% url index %}">sanluispropiedades.com</a> > <a href="#">Alquiler</a> > <a href="#">Galpones</a> </div>
+				
+{% for object in object_list %}
+<div class="list_properties">
+	<div class="title_property2">
+		<h2><a href="{% url shed_rent_detail object.id object.address|slugify %}">{{ object.address }}</a></h2>
+		<span class="star">${{ object.price }}</span>
+	</div>
+	<div class="clear"></div>
+	{% for image in object.images.all %}
+		{% if forloop.first %}
+		<div class="list_img">
+			<a href="{% url shed_rent_detail object.id object.address|slugify %}"><img src="{{ image.image.url_131x85 }}" alt=""/></a>
+		</div>
+		{% endif %}
+		{% if forloop.last %}
+		<div class="muestra_sub_abajo">{{ forloop.counter }} foto{% if forloop.counter > 1 %}s{% endif %}</div>
+		{% endif %}
+	{% endfor %}
+	<div class="list_text">
+		<img src="{{ STATIC_URL }}images/content/pp-nologo.gif" alt="" class="alignright"/>
+		Ambientes: {{ object.ambiences }}<br />
+		Habitaciones: {{ object.rooms }}<br />
+		Ba&ntilde;os: {{ object.baths }}<br />
+		Antiguedad:  {{ object.get_old_display }}<br />
+		Apto Profesional: {% if object.professional %}Si{% else %}No{% endif %}<br />
+		<div class="ver_mas"> <a  href="detalle-propiedad.html"  ><b>Ver detalles</b></a> </div>
+		<div class="contactar_anunciante"> <a  href="detalle-propiedad.html" ><b>Contactar anunciante</b></a> </div>
+	</div>
+	<div class="clear"></div>
+</div>
+{% endfor %}	
+                
+                
+					<div class="clear"></div>
+					<div id="pagenavi">
+						<a href="#" class="current">1</a>&nbsp;|&nbsp;<a href="#">2</a>&nbsp;|&nbsp;<a href="#">Siguiente &gt;</a>					
+					</div><!-- #pagenavi -->
+			</div><!-- end #content -->
+            <div class="sidebar_right">
+			<div class="sidebar">
+				<ul>				
+					
+					
+					
+					
+					<li class="widget-container widget_categories">
+						<h2 class="widget-title">Publicidad</h2>
+						<img src="{{ STATIC_URL }}images/publicidad-banco.png"></img>
+					</li>
+					
+				</ul>
+            </div><!-- end #sidebar -->
+</div><!-- end #sidebar_right -->
+<div class="clear"></div>
+{% endblock %}

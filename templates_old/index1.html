@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+
+
+{% block menu %}
+<div id="navigation">
+				<ul id="nav" class="sf-menu">
+					<li><a href="{% url index %}" class="current">Inicio</a></li>
+                    <li><a href="#" >Alquiler</a>
+						<ul>
+							<li><a href="{% url house_rent_list %}">Casa</a></li>
+							<li><a href="{% url departament_rent_list %}">Departamento</a></li>
+                            <li><a href="{% url office_rent_list %}">Oficinas</a></li>
+							<li><a href="{% url land_rent_list %}">Campos</a></li>
+                            <li><a href="{% url shed_rent_list %}">Galpones</a></li>
+                            <li><a href="{% url localbusiness_rent_list %}">Loc. Comerciales</a></li>
+						</ul>
+					</li>
+                    
+                    <li><a href="#">Venta</a>
+						<ul>
+							<li><a href="{% url house_sale_list %}">Casa</a></li>
+							<li><a href="{% url departament_sale_list %}">Departamento</a></li>
+                            <li><a href="{% url office_sale_list %}">Oficinas</a></li>
+							<li><a href="{% url land_sale_list %}">Campos</a></li>
+                            <li><a href="{% url shed_sale_list %}">Galpones</a></li>
+                            <li><a href="{% url localbusiness_sale_list %}">Loc. Comerciales</a></li>
+						</ul>
+						
+					</li>
+                    
+                    <li><a href="#">Oportunidades</a>
+						<ul>
+							<li><a href="#">Emprendimientos</a></li>
+							<li><a href="#">Fideicomisos</a></li>
+                            <li><a href="#">Loteos</a></li>
+							<li><a href="#">Fondos de Com.</a></li>
+						</ul>
+					</li>
+                    
+                    <li><a href="#">Inmobiliarias</a></li>
+                    
+                    <li><a href="{% url contact %}">Contacto</a></li>
+					
+					
+                    
+                    <!--
+                    <li><a href="#">Property</a>
+						<ul>
+							<li><a href="property-list.html">Property List</a></li>
+							<li><a href="property-grid.html">Property Grid</a></li>
+							<li><a href="property-details.html">Property Details</a></li>
+						</ul>
+					</li>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="blog.html">Blog</a></li>-->
+					
+                    
+                    <!--  EJEMPLO MENU DOBLE DESPLEGABLE
+                    <li><a href="about.html">About</a>
+						<ul>
+							<li><a href="styling.html">HTML Styling</a></li>
+							<li><a href="column.html">Column Layouts</a></li>
+							<li><a href="#">Example Dropdown</a>
+								<ul>
+									<li><a href="#">More Menu</a></li>
+									<li><a href="#">More Menu</a></li>
+									<li><a href="#">More Menu</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li> -->
+                    
+                    
+                    
+                    
+				</ul>
+			</div><!-- end #navigation-->
+{% endblock %}
+
+{% block banner %}
+<div id="container">
+        
+ <div id="slideshow_navigation"> 
+			<div id="pager"></div> 
+			</div><!-- end slideshow navigation --> 
+			<div id="slideshow" class="two_third">
+            
+				<div class="cycle two_third"><img src="{{ STATIC_URL }}images/content/slider1.png" alt="" /></div>
+				<div class="cycle two_third"><img src="{{ STATIC_URL }}images/content/slider2.png" alt="" /></div>
+				<div class="cycle two_third"><img src="{{ STATIC_URL }}images/content/slider3.png" alt="" /></div>
+			</div>
+
+			<div id="search" class="one_third">
+					<h2 class="underline">Busqueda R&aacute;pida</h2> 
+					<form method="post" action="" id="contact-information"> 
+						<fieldset>
+							<label>Propiedad:</label>
+							<select>
+								<option>Departamentos</option>
+								<option>Casas</option>
+								<option>Terrenos</option>
+							</select><br />
+							<label>Operaci&oacute;n:</label>
+							<select>
+								<option>Venta</option>
+								<option>Alquiler</option>
+								<option>Alquiler Temporal</option>
+							</select><br />
+							<label>Ubicaci&oacute;n:</label>
+							<select>
+								<option>San Luis</option>
+								<option>Juana Koslay</option>
+								<option>Merlo</option>
+							</select><br />
+							<label>Precio:</label>
+							<select>
+								<option>Entre $1 y $1500</option>
+								<option>Entre $1500 y $3000</option>
+								<option>Más de $3000</option>
+							</select><br />
+							
+							
+							<input type="submit" name="submit" class="button" value="Buscar"/>
+							<small><a href="#">B&uacute;squeda Avanzada.</a></small>
+						</fieldset> 
+					</form> 
+				</div>
+			</div><!-- end #slide -->
+{% endblock %}
+
+{% block content %}
+<div id="content" class="full">
+				
+				<br/>
+				<br/>
+				<div class="title_featured">
+				<h2>Propiedades <span class="blue">Destacadas</span></h2><a href="property-grid.html" class="featured">Ver todas</a>
+				</div>
+				
+				<ul class="four_column_properties">
+					<li>
+					  <img src="{{ STATIC_URL }}images/content/pp-img1.jpg" alt="" />
+					  <h6><a href="#">Pringles 742		 </a></h6>
+					  <ul class="box_text">
+					  	<li><span class="left">Precio:</span> 7 </li>
+						<li><span class="left">Dormitorios:</span> 4 </li>
+					  </ul>				
+					</li>
+					<li>
+					  <img src="{{ STATIC_URL }}images/content/pp-img2.jpg" alt="" />
+					  <h6><a href="#">San Martin y 25 de mayo</a></h6>
+					  <ul class="box_text">
+					  	<li><span class="left">Precio:</span> 7 </li>
+						<li><span class="left">Dormitorios:</span> 2 </li>
+					  </ul>				
+					</li>
+					<li>
+					  <img src="{{ STATIC_URL }}images/content/pp-img3.jpg" alt="" />
+					  <h6><a href="#">Tomas Jofre 931</a></h6>
+					  <ul class="box_text">
+					  	<li><span class="left">Precio:</span> 7 </li>
+						<li><span class="left">Dormitorios:</span> 2 </li>
+					  </ul>				
+					</li>
+					<li class="nomargin">
+					  <img src="{{ STATIC_URL }}images/content/pp-img4.jpg" alt="" />
+					  <h6><a href="#">San Jorge y A. Cabral (Jk)</a></h6>
+					  <ul class="box_text">
+					  	<li><span class="left">Precio:</span> 7 </li>
+						<li><span class="left">Dormitorios:</span> 3 </li>
+					  </ul>		
+					</li>
+				</ul>
+                
+                
+				
+			</div><!-- end #content -->
+			<div class="clear"></div>
+            <div class="one_third"><img src="{{ STATIC_URL }}images/inmosantamonica.gif"> </img></div><div class="one_third">
+              <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="300" height="150" id="FlashID" title="Publicidad">
+                <param name="movie" value="{{ STATIC_URL }}images/peliflash.swf" />
+                <param name="quality" value="high" />
+                <param name="wmode" value="opaque" />
+                <param name="swfversion" value="9.0.45.0" />
+                <!-- Esta etiqueta param indica a los usuarios de Flash Player 6.0 r65 o posterior que descarguen la versión más reciente de Flash Player. Elimínela si no desea que los usuarios vean el mensaje. -->
+                <param name="expressinstall" value="Scripts/expressInstall.swf" />
+                <!-- La siguiente etiqueta object es para navegadores distintos de IE. Ocúltela a IE mediante IECC. -->
+                <!--[if !IE]>-->
+                <object type="application/x-shockwave-flash" data="{{ STATIC_URL }}images/peliflash.swf" width="300" height="150">
+                  <!--<![endif]-->
+                  <param name="quality" value="high" />
+                  <param name="wmode" value="opaque" />
+                  <param name="swfversion" value="9.0.45.0" />
+                  <param name="expressinstall" value="Scripts/expressInstall.swf" />
+                  <!-- El navegador muestra el siguiente contenido alternativo para usuarios con Flash Player 6.0 o versiones anteriores. -->
+                  <div>
+                    <h4>El contenido de esta p&aacute;gina requiere una versión m&aacute;s reciente de Adobe Flash Player.</h4>
+                    <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Obtener Adobe Flash Player" width="112" height="33" /></a></p>
+                  </div>
+                  <!--[if !IE]>-->
+                </object>
+                <!--<![endif]-->
+              </object>
+          </div><div class="one_third last"><img src="{{ STATIC_URL }}images/p-index-center.png"> </img></div>
+            
+            
+            <!--
+            <div class="two_third">
+			  <h2 class="underline">Inversi&oacute;n <span class="blue">Segura</span></h2>
+				Inversión Segura es el punto de encuentro entre vendedores y compradores donde la confianza, la seguridad y la seriedad son  nuestros pilares.
+                El crecimiento informático en San Luis y la proliferación de antenas wi fi libre y gratuitas hacen que los habitantes estén conectados a la web todo el tiempo. En Inversión Segura, aprovechamos la velocidad y conectividad de este medio, ofreciendo un servicio seguro y actualizado del mercado inmobiliario de la provincia.
+
+En Inversion Segura compradores,  inquilinos e inversores  puedan obtener de manera rápida, segura y desde cualquier lugar  todo el panorama inmobiliario actualizado de  San Luis.  
+				</div>
+            <!-- end .two_third -->
+				
+                <!--
+                <div class="one_third last">
+				<h2 class="underline">¿Por qu&eacute; <span class="blue">Elegirnos?</span></h2>
+				Potencie sus ventas,  le proponemos que se sume a la creciente cartera de clientes que ya eligieron la inmediatez de un medio en acelerado crecimiento.
+Disponemos de una gran variedad de servicios y planes que con seguridad se adecuan a sus necesidades e intereses.
+				</div>--!>
+                <!-- end .one_third -->
+				<br class="clear" />
+
+{% endblock %}

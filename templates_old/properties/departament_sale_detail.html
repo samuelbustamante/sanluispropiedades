@@ -1,0 +1,391 @@
+{% extends "base.html" %}
+
+
+{% block menu %}
+<div id="navigation">
+				<ul id="nav" class="sf-menu">
+					<li><a href="{% url index %}" >Inicio</a></li>
+                    <li><a href="#" >Alquiler</a>
+						<ul>
+							<li><a href="{% url house_rent_list %}">Casa</a></li>
+							<li><a href="{% url departament_rent_list %}">Departamento</a></li>
+                            <li><a href="{% url office_rent_list %}">Oficinas</a></li>
+							<li><a href="{% url land_rent_list %}">Campos</a></li>
+                            <li><a href="{% url shed_rent_list %}">Galpones</a></li>
+                            <li><a href="{% url localbusiness_rent_list %}">Loc. Comerciales</a></li>
+						</ul>
+					</li>
+                    
+                    <li><a href="#" class="current">Venta</a>
+						<ul>
+							<li><a href="{% url house_sale_list %}">Casa</a></li>
+							<li><a href="{% url departament_sale_list %}">Departamento</a></li>
+                            <li><a href="{% url office_sale_list %}">Oficinas</a></li>
+							<li><a href="{% url land_sale_list %}">Campos</a></li>
+                            <li><a href="{% url shed_sale_list %}">Galpones</a></li>
+                            <li><a href="{% url localbusiness_sale_list %}">Loc. Comerciales</a></li>
+						</ul>
+						
+					</li>
+                    
+                   <li><a href="#">Oportunidades</a>
+						<ul>
+							<li><a href="#">Emprendimientos</a></li>
+							<li><a href="#">Fideicomisos</a></li>
+                            <li><a href="#">Loteos</a></li>
+							<li><a href="#">Fondos de Com.</a></li>
+						</ul>
+					</li>
+                    
+                    <li><a href="#">Inmobiliarias</a></li>
+                    
+                    <li><a href="#">Contacto</a></li>
+				   
+				</ul>
+			</div><!-- end #navigation-->
+{% endblock %}
+	
+	
+{% block content %}
+			<div id="maincontent">
+			<div id="content1">
+            
+				<h2 class="underline">{{ object.address }} <div class="precio-detalle">${{ object.price }}</div></h2>
+				<div id="container-slider">
+				<ul id="slideshow_detail">
+					
+				{% if object.image0 %}
+					<li>
+						<h3>Title0</h3>
+						<span>{{ object.image0.url_485x300 }}</span>
+						<p></p>
+						<img src="{{ object.image0.url_45x33 }}" alt="thumb" />
+					</li>
+				{% endif %}
+				{% if object.image1 %}
+					<li>
+						<h3>Title1</h3>
+						<span>{{ object.image1.url_485x300 }}</span>
+						<p></p>
+						<img src="{{ object.image1.url_45x33 }}" alt="thumb" />
+					</li>
+                {% endif %}
+				{% if object.image1 %}
+					<li>
+						<h3>Title1</h3>
+						<span>{{ object.image1.url_485x300 }}</span>
+						<p></p>
+						<img src="{{ object.image1.url_45x33 }}" alt="thumb" />
+					</li>
+                {% endif %}
+				{% if object.image2 %}
+					<li>
+						<h3>Title2</h3>
+						<span>{{ object.image2.url_485x300 }}</span>
+						<p></p>
+						<img src="{{ object.image2.url_45x33 }}" alt="thumb" />
+					</li>
+                {% endif %}
+				{% if object.image3 %}
+					<li>
+						<h3>Title3</h3>
+						<span>{{ object.image3.url_485x300 }}</span>
+						<p></p>
+						<img src="{{ object.image3.url_45x33 }}" alt="thumb" />
+					</li>
+                {% endif %}
+				{% if object.image4 %}
+					<li>
+						<h3>Title4</h3>
+						<span>{{ object.image4.url_485x300 }}</span>
+						<p></p>
+						<img src="{{ object.image4.url_45x33 }}" alt="thumb" />
+					</li>
+                {% endif %}
+				{% if object.image5 %}
+					<li>
+						<h3>Title5</h3>
+						<span>{{ object.image5.url_485x300 }}</span>
+						<p></p>
+						<img src="{{ object.image5.url_45x33 }}" alt="thumb" />
+					</li>
+                {% endif %}
+				{% if object.image6 %}
+					<li>
+						<h3>Title6</h3>
+						<span>{{ object.image6.url_485x300 }}</span>
+						<p></p>
+						<img src="{{ object.image6.url_45x33 }}" alt="thumb" />
+					</li>
+                {% endif %}
+				{% if object.image7 %}
+					<li>
+						<h3>Title7</h3>
+						<span>{{ object.image7.url_485x300 }}</span>
+						<p></p>
+						<img src="{{ object.image7.url_45x33 }}" alt="thumb" />
+					</li>
+                {% endif %}
+				{% if object.image8 %}
+					<li>
+						<h3>Title8</h3>
+						<span>{{ object.image8.url_485x300 }}</span>
+						<p></p>
+						<img src="{{ object.image8.url_45x33 }}" alt="thumb" />
+					</li>
+                {% endif %}
+				{% if object.image9 %}
+					<li>
+						<h3>Title9</h3>
+						<span>{{ object.image9.url_485x300 }}</span>
+						<p></p>
+						<img src="{{ object.image9.url_45x33 }}" alt="thumb" />
+					</li>
+                {% endif %}
+				
+                    		
+					
+				</ul>
+				<div id="wrapper">
+					<div id="fullsize">
+						<div id="imgprev" class="imgnav" title="Previous Image"></div>
+						<div id="imglink"></div>
+						<div id="imgnext" class="imgnav" title="Next Image"></div>
+						<div id="image"></div>
+						<div id="information">
+							<h3></h3>
+							<p></p>
+						</div>
+					</div>
+					<div id="thumbnails">
+						<div id="slideleft" title="Slide Left"></div>
+						<div id="slidearea">
+							<div id="slider"></div>
+						</div>
+						<div id="slideright" title="Slide Right"></div>
+					</div>
+				</div>
+			<script type="text/javascript" src="{{ STATIC_URL }}js/compressed.js"></script>
+			<script type="text/javascript" src="{{ STATIC_URL }}js/script.js"></script>
+			<script type="text/javascript">
+			<!-- 
+			
+				$('slideshow_detail').style.display='none';
+				$('wrapper').style.display='block';
+				var slideshow_detail=new TINY.slideshow_detail("slideshow_detail");
+				window.onload=function(){
+					slideshow_detail.auto=true;
+					slideshow_detail.speed=5;
+					slideshow_detail.link="linkhover";
+					slideshow_detail.info="information";
+					slideshow_detail.thumbs="slider";
+					slideshow_detail.left="slideleft";
+					slideshow_detail.right="slideright";
+					slideshow_detail.scrollSpeed=4;
+					slideshow_detail.spacing=25;
+					slideshow_detail.active="#fff";
+					slideshow_detail.init("slideshow_detail","image","imgprev","imgnext","imglink");
+				}
+			//-->  
+			</script>
+			</div><!-- end content-slider -->
+			
+			<div class="clear"><br /><br /></div>
+			
+			
+            
+            
+				
+			
+			
+			
+            
+            
+            <!--
+            <h2 class="underline">Location</h2>
+<iframe width="620" height="353" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=222+North+Canon+Drive+%23202,+Beverly+Hills+&amp;aq=&amp;sll=34.066623,-118.386612&amp;sspn=0.005022,0.011362&amp;ie=UTF8&amp;hq=&amp;hnear=222+N+Canon+Dr,+Beverly+Hills,+Los+Angeles,+California+90210&amp;ll=34.068423,-118.398505&amp;spn=0.020085,0.045447&amp;z=14&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=222+North+Canon+Drive+%23202,+Beverly+Hills+&amp;aq=&amp;sll=34.066623,-118.386612&amp;sspn=0.005022,0.011362&amp;ie=UTF8&amp;hq=&amp;hnear=222+N+Canon+Dr,+Beverly+Hills,+Los+Angeles,+California+90210&amp;ll=34.068423,-118.398505&amp;spn=0.020085,0.045447&amp;z=14" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+				-->
+						
+						
+			</div><!-- end #content -->
+			
+			<h2 class="underline">Ubicaci&oacute;n</h2>
+<iframe width="400" height="380" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=222+North+Canon+Drive+%23202,+Beverly+Hills+&amp;aq=&amp;sll=34.066623,-118.386612&amp;sspn=0.005022,0.011362&amp;ie=UTF8&amp;hq=&amp;hnear=222+N+Canon+Dr,+Beverly+Hills,+Los+Angeles,+California+90210&amp;ll=34.068423,-118.398505&amp;spn=0.020085,0.045447&amp;z=14&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=222+North+Canon+Drive+%23202,+Beverly+Hills+&amp;aq=&amp;sll=34.066623,-118.386612&amp;sspn=0.005022,0.011362&amp;ie=UTF8&amp;hq=&amp;hnear=222+N+Canon+Dr,+Beverly+Hills,+Los+Angeles,+California+90210&amp;ll=34.068423,-118.398505&amp;spn=0.020085,0.045447&amp;z=14" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+			
+			
+		</div><!-- end #maincontent -->
+		
+		
+		
+		
+		
+		
+	 <!--                        ********************************************************************-->	
+		
+		
+		
+		
+		
+		<div id="maincontent">
+			
+		  <div id="content">	
+			
+			
+			
+            
+            <h2 class="underline">Caracter&iacute;sticas Generales</h2>
+			<div id="property-detail">
+            <ul class="box_text">
+                <li><span class="left">Direccion</span> <span class="right">{{ object.address }}</span></li>
+                
+            </ul>
+		    <div class="one_half">
+				<ul class="box_text">
+					<li><span class="left">Ambientes</span>			{{ object.ambiences }}</li>
+					<li><span class="left">Habitaciones</span>			{{ object.rooms }}</li>
+					<li><span class="left">Expensas</span>			{{ object.expences }}</li>
+					<li><span class="left">Luminosidad</span>				{{ object.get_luminosity_display }}</li>
+					<li><span class="left">Orientaci&oacute;n</span>		{{ object.get_orientation_display }}</li>
+					<li><span class="left">Estado del inmueble</span>			{{ object.get_state_display }}</li>
+					<li><span class="left">Apto profesional</span>		{% if object.professional %}si{% else %}no{% endif %}	</li>
+                    <li><span class="left">Uso comercial</span>			{% if object.commercial %}si{% else %}no{% endif %}</li>
+				</ul>	
+			</div>
+			<div class="one_half last">
+				<ul class="box_text">
+					<li><span class="left">Ba&ntilde;os</span>				{{ object.baths }}</li>
+					<li><span class="left">Antig&uuml;edad	</span>			{{ object.get_old_display }}</li>
+					<li><span class="left">Sup. total (M2)</span>		{{ object.surfaces }}</li>
+					<li><span class="left">Sup. cubierta (M2)</span>			{{ object.surfaces_coated }}</li>
+					<li><span class="left">Ascensores:</span>				{{ object.lifts }}</li>
+					<li><span class="left">Cantidad cocheras:</span>					{{ object.garages }}</li>
+					<li><span class="left">Cocheras cubiertas</span>				{{ object.garages_coated }}</li>
+                    <li><span class="left">Plantas</span>				{{ object.floors }}</li>
+                    
+				</ul>	
+			</div>
+				<ul class="box_text">
+					<li><span class="left">Descripci&oacute;n	</span>	<span class="right">{{ object.description }}</span></li>
+					<li><span class="left">Servicios</span> <span class="right"> {% for service in object.ambiences.all %} {{ ambiences.name }} {% endfor %}</span>
+					<li><span class="left">Servicios</span> <span class="right"> {% for service in object.services.all %} <img src="{{ STATIC_URL }}images/icon1.png"></img>{{ service.name }} {% endfor %}</span>
+					
+
+                  </li>	
+					
+	      </ul>	
+				</div>
+				
+			<div class="clear"><br /><br /></div>
+			
+			
+            
+            
+            						
+			  </DIV>			
+              
+			</div><!-- end #content -->
+			
+			<div class="sidebar_right1">
+			<div class="sidebar">
+				<ul>
+					
+				
+					<li class="widget-container widget_text">
+						<h2 class="widget-title">Anunciante</h2>
+						<div class="agent">
+						<p><img src="{{ object.propietor.logo.url_80x59 }}" alt="" class="alignleft" />	
+							<span class="black">{{ object.propietor.name }}</span><br />
+							Direcci&oacute;n: {{ object.propietor.address }}<br /> 
+							Tel: {{ object.propietor.phone }}<br /><br /> 
+							E_mail: {{ object.propietor.email }} 
+							
+						</p>
+						<p>
+						<a target="_blank" href="{{ object.propietor.web }}">Sitio web</a><br />
+						
+					  </p>
+					  </div>
+					</li>
+                    <li class="widget-container widget_search">
+						<h2 class="widget-title">Contactar Anunciante</h2>
+						<div id="contactform">
+								  <form id="contact" action="">
+									<fieldset>
+									  <input type="text" name="nombre" id="nombre" size="30" value="Nombre" class="text-input" />
+									  <input type="text" name="telefono" id="telefono" size="30" value="Telefono" class="text-input" />
+									  <input type="text" name="email" id="email" size="30" value="Email" class="text-input" />	
+
+									 <textarea cols="" rows="" name="msg" id="msg">Mensaje</textarea>
+									 
+									 <input type="submit" name="submit" class="button"  id="submit_btn1"  value="Enviar"/>
+									</fieldset>
+								  </form>
+						</div><!-- end #contactform -->
+						
+						<!--<form method="post" action="" id="contact-agent" >
+						<fieldset>
+							<ul>
+								<li>
+								<label>Nombre</label><br />
+								<input type="text" size="37"/>
+								</li>
+								<li>
+								<label>Telefono</label><br />
+								<input type="text" size="37"/>
+								</li>
+							</ul>
+							<label>Email</label><br />
+							<input type="text" size="37"/><br />
+							<label>Mensaje</label><br />
+							<textarea cols="37" rows="3"> </textarea><br />
+							<input type="submit" name="submit" class="button" value="Enviar"/>
+						</fieldset>
+						</form>-->
+						
+					</li>
+                    
+				
+			
+				</ul>
+            </div><!-- end #sidebar -->
+			</div><!-- end #sidebar_right -->
+            <div class="p-index-h">
+				    <img src="{{ STATIC_URL }}images/p-index-horizontal.png"></img>
+				</div>
+			
+			<div class="clear"></div>
+		</div><!-- end #maincontent -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+						
+{% endblock %}
+			
+					
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+

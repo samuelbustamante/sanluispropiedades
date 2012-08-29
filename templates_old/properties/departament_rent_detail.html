@@ -1,0 +1,26 @@
+{# Mostrar thumbs #}
+
+{% for image in object.images %}
+
+	<img src="{{ image.image.url_47x35 }}">
+
+{% endfor %}
+
+{# mostrar detalles #}
+
+	<li>
+		<span class="left">Ambientes:</span>
+		<span class="right">{{ object.ambiences }}</span>
+	</li>
+
+{# mostrar servicios #}
+
+	<li>
+		<span class="left">Servicios:</span>
+		<span class="right">
+			{% for service in object.services.all %}
+				{{ service.name }}
+			{% endfor %}
+		</span>
+	</li>
+

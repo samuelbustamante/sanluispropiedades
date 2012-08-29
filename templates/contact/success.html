@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+
+{% block menu %}
+<div id="navigation">
+				<ul id="nav" class="sf-menu">
+					<li><a href="{% url index %}" >Inicio</a></li>
+                    <li><a href="#" >Alquiler</a>
+						<ul>
+							<li><a href="{% url house_rent_list %}">Casa</a></li>
+							<li><a href="{% url departament_rent_list %}">Departamento</a></li>
+                            <li><a href="{% url office_rent_list %}">Oficinas</a></li>
+							<li><a href="{% url land_rent_list %}">Campos</a></li>
+                            <li><a href="{% url shed_rent_list %}">Galpones</a></li>
+                            <li><a href="{% url localbusiness_rent_list %}">Loc. Comerciales</a></li>
+						</ul>
+					</li>
+                    
+                    <li><a href="#" >Venta</a>
+						<ul>
+							<li><a href="{% url house_sale_list %}">Casa</a></li>
+							<li><a href="{% url departament_sale_list %}">Departamento</a></li>
+                            <li><a href="{% url office_sale_list %}">Oficinas</a></li>
+							<li><a href="{% url land_sale_list %}">Campos</a></li>
+                            <li><a href="{% url shed_sale_list %}">Galpones</a></li>
+                            <li><a href="{% url localbusiness_sale_list %}">Loc. Comerciales</a></li>
+						</ul>
+						
+					</li>
+                    
+                   <li><a href="#">Oportunidades</a>
+						<ul>
+							<li><a href="#">Emprendimientos</a></li>
+							<li><a href="#">Fideicomisos</a></li>
+                            <li><a href="#">Loteos</a></li>
+							<li><a href="#">Fondos de Com.</a></li>
+						</ul>
+					</li>
+                    
+                    <li><a href="#">Inmobiliarias</a></li>
+                    
+                    <li><a href="{% url contact %}" class="current">Contacto</a></li>
+				   
+				</ul>
+			</div><!-- end #navigation-->
+{% endblock %}
+
+{% block content %}
+			
+		<div id="maincontent">
+			<div id="content" class="full">
+			
+				
+				<div class="one_third">
+					<div class="sidebar">
+					<ul>
+						<li class="widget-container">
+							
+							<div class="bg_gray">
+							<img src="{{ STATIC_URL }}images/content/contactt.png" alt=""  /><br /><br />
+
+							<p><span class="blue"><strong>Contactenos</strong></span><br/>
+							</p>
+							<ul class="inline">
+								<li><span class="left">Telefono:</span> 266 154 332746 </li>
+								<li><span class="left">Telefono:</span> 266 154 617406 </li>
+								<li><span class="left">Email:</span> <a href="mailto:testmail@templatesquare.com" class="mail">contacto@sanluispropiedades.com</a></li>
+							</ul>
+							
+							</div><!-- end .bg_gray -->
+						</li>
+					</ul>
+					</div>
+				</div>
+				<div class="one_third">
+					<div class="sidebar">
+					<ul>
+						<li class="widget-container">
+							<div class="bg_gray">
+								<div id="contactform">
+								  <form id="contact" action="/contacto/" method="POST">
+									{% csrf_token %}
+									<fieldset>
+                             <input type="text" name="realestate" value="1" style="display:none;" />
+									  <input type="text" name="name" id="nombre" size="30" value="Nombre" class="text-input" />
+									  <input type="text" name="phone" id="telefono" size="30" value="Telefono" class="text-input" />
+									  <input type="text" name="email" id="email" size="30" value="Email" class="text-input" />	
+									  <textarea cols="" rows="" name="message" id="msg">Mensaje</textarea>
+									  <input type="submit" name="submit" class="button" id="submit_btn" value="Enviar"/>
+									</fieldset>
+								  </form>
+								</div><!-- end #contactform -->
+							</div><!-- end .bg_gray -->
+						</li>
+					</ul>
+					</div>
+				</div>
+				<div class="one_third last">
+					<div class="sidebar">
+					<ul>
+						<li class="widget-container">
+							<div class="bg_gray">
+							<p>Somos un equipo comprometido y preparado para satisfacer las necesidades de nuestros clientes.</p>
+							<p>Env&iacute;e su consulta y ser&aacute; respondida a la brevedad. </p>
+														</div><!-- end .bg_gray -->
+						</li>
+					</ul>
+					</div>
+				</div><!-- end .one_third last -->
+				
+			</div><!-- end #content -->
+			<div class="clear"></div>
+		</div><!-- end #maincontent -->
+	
+	{% endblock %}

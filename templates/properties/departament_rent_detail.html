@@ -1,0 +1,320 @@
+{% extends "base.html" %}
+
+{% block title %}titulo{% endblock %}
+
+{% block centercolumn %}
+<div class="centercolumn">
+	<div id="maincontent">
+		<div id="content">
+			<h2 class="underline">{{ object.address }} <span class="colortext">({{ object.get_location_display }})</span></h2>
+			<div id="container-slider">
+				<ul id="slideshow_detail">
+				{% if object.image0 %}
+					<li><h3></h3><span>{{ object.image0.url_485x300 }}</span><p></p><img src="{{ object.image0.url_45x33 }}" alt="thumb" /></li>
+				{% endif %}
+				{% if object.image1 %}
+					<li><h3></h3><span>{{ object.image1.url_485x300 }}</span><p></p><img src="{{ object.image1.url_45x33 }}" alt="thumb" /></li>
+				{% endif %}
+				{% if object.image1 %}
+					<li><h3></h3><span>{{ object.image1.url_485x300 }}</span><p></p><img src="{{ object.image1.url_45x33 }}" alt="thumb" /></li>
+                {% endif %}
+				{% if object.image2 %}
+					<li><h3></h3><span>{{ object.image2.url_485x300 }}</span><p></p><img src="{{ object.image2.url_45x33 }}" alt="thumb" /></li>
+				{% endif %}
+				{% if object.image3 %}
+					<li><h3></h3><span>{{ object.image3.url_485x300 }}</span><p></p><img src="{{ object.image3.url_45x33 }}" alt="thumb" /></li>
+				{% endif %}
+				{% if object.image4 %}
+					<li><h3></h3><span>{{ object.image4.url_485x300 }}</span><p></p><img src="{{ object.image4.url_45x33 }}" alt="thumb" /></li>
+				{% endif %}
+				{% if object.image5 %}
+					<li><h3></h3><span>{{ object.image5.url_485x300 }}</span><p></p><img src="{{ object.image5.url_45x33 }}" alt="thumb" /></li>
+				{% endif %}
+				{% if object.image6 %}
+					<li><h3></h3><span>{{ object.image6.url_485x300 }}</span><p></p><img src="{{ object.image6.url_45x33 }}" alt="thumb" /></li>
+				{% endif %}
+				{% if object.image7 %}
+					<li><h3></h3><span>{{ object.image7.url_485x300 }}</span><p></p><img src="{{ object.image7.url_45x33 }}" alt="thumb" /></li>
+				{% endif %}
+				{% if object.image8 %}
+					<li><h3></h3><span>{{ object.image8.url_485x300 }}</span><p></p><img src="{{ object.image8.url_45x33 }}" alt="thumb" /></li>
+				{% endif %}
+				{% if object.image9 %}
+					<li><h3></h3><span>{{ object.image9.url_485x300 }}</span><p></p><img src="{{ object.image9.url_45x33 }}" alt="thumb" /></li>
+				{% endif %}
+				</ul>
+				<div id="wrapper">
+					<div id="fullsize">
+               	<img id="preloadimg" src="http://demowp.templatesquare.com/lighthouse/wp-content/themes/lighthouse/images/preload.gif" alt="" />
+						<div id="imgprev" class="imgnav" title="Previous Image"></div>
+						<div id="imglink"></div>
+						<div id="imgnext" class="imgnav" title="Next Image"></div>
+						<div id="image"></div>
+						<div id="information">
+							<h3></h3>
+							<p></p>
+						</div>
+					</div>
+					<div id="thumbnails">
+						<div id="slideleft" title="Slide Left"></div>
+						<div id="slidearea">
+							<div id="slider"></div>
+						</div>
+						<div id="slideright" title="Slide Right"></div>
+					</div>
+				</div>
+				<script type="text/javascript" src="http://demowp.templatesquare.com/lighthouse/wp-content/themes/lighthouse/js/compressed.js"></script>
+				<script type="text/javascript" src="http://demowp.templatesquare.com/lighthouse/wp-content/themes/lighthouse/js/gallery.js"></script>
+				<script type="text/javascript">
+					$('slideshow_detail').style.display='block';
+					$('wrapper').style.display='block';
+					var slideshow_detail=new TINY.slideshow_detail("slideshow_detail");
+					window.onload=function(){
+						slideshow_detail.auto=true;
+						slideshow_detail.speed=5;
+						slideshow_detail.link="linkhover";
+						slideshow_detail.info="information";
+						slideshow_detail.thumbs="slider";
+						slideshow_detail.left="slideleft";
+						slideshow_detail.right="slideright";
+						slideshow_detail.scrollSpeed=4;
+						slideshow_detail.spacing=8;
+						slideshow_detail.active="#fff";
+						slideshow_detail.init("slideshow_detail","image","imgprev","imgnext","imglink");
+					}
+				</script>
+			</div>
+			<div class="clear"></div><br /><br />
+         <h2 class="underline">Características <span class="colortext">Generales</span></h2>
+			<div id="property-detail">
+				<ul class="box_text">
+					<li><span class="left">Direccion</span> <span class="right">{{ object.address }}</span></li>
+				</ul>
+				<div class="one_half">
+					<ul class="box_text">
+						<li><span class="left">Ambientes</span>{{ object.ambiences }}</li>
+						<li><span class="left">Habitaciones</span>{{ object.rooms }}</li>
+						<li><span class="left">Expensas</span>{{ object.expences }}</li>
+						<li><span class="left">Luminosidad</span>{{ object.get_luminosity_display }}</li>
+						<li><span class="left">Orientaci&oacute;n</span>{{ object.get_orientation_display }}</li>
+						<li><span class="left">Estado del inmueble</span>{{ object.get_state_display }}</li>
+						<li><span class="left">Apto profesional</span>{% if object.professional %}si{% else %}no{% endif %}	</li>
+						<li><span class="left">Uso comercial</span>{% if object.commercial %}si{% else %}no{% endif %}</li>
+					</ul>
+				</div>
+				<div class="one_half last">
+					<ul class="box_text">
+						<li><span class="left">Ba&ntilde;os</span>{{ object.baths }}</li>
+						<li><span class="left">Antig&uuml;edad	</span>{{ object.get_old_display }}</li>
+						<li><span class="left">Sup. total (M2)</span>{{ object.surfaces }}</li>
+						<li><span class="left">Sup. cubierta (M2)</span>{{ object.surfaces_coated }}</li>
+						<li><span class="left">Ascensores:</span>{{ object.lifts }}</li>
+						<li><span class="left">Cantidad cocheras:</span>{{ object.garages }}</li>
+						<li><span class="left">Cocheras cubiertas</span>{{ object.garages_coated }}</li>
+						<li><span class="left">Plantas</span>{{ object.floors }}</li>
+					</ul>	
+				</div>
+				<ul class="box_text">
+					<li><span class="left">Descripci&oacute;n	</span>	<span class="right">{{ object.description }}</span></li>
+					<li><span class="left">Servicios</span>
+						<span class="right">
+							{% for service in object.services.all %}
+								<img src="{{ STATIC_URL }}images/icon1.png"></img>{{ service.name }}
+							{% endfor %}
+						</span>
+					</li>	
+		      </ul>	
+			</div>
+			<div class="clear"></div><br /><br />
+			<h2 class="underline">Posición <span class="colortext">Geográfica</span></h2>
+<iframe width="620" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?saddr={{ object.latitude }},{{ object.longitude }}&amp;hl=es&amp;sll={{ object.latitude }},{{ object.longitude }}&amp;sspn=0.0,0.0&amp;mra=mift&amp;mrsp=0&amp;sz=16&amp;t=m&amp;ie=UTF8&amp;ll={{ object.latitude }},{{ object.longitude }}&amp;spn=0,0&amp;z=16&amp;output=embed"></iframe>
+			<div id="comments">
+				<p class="nocomments">Comments are closed.</p>
+			</div>
+		</div>
+			
+						
+			<div class="sidebar_right">
+			<div class="sidebar">
+				<ul>
+				
+					<li class="widget-container widget_text">
+						<h2 class="widget-title">Datos de <span class="colortext">Inmobiliaria</span></h2>
+						
+						<div class="agent">
+						
+						<div class="alignleft">
+							<img alt='' src='{{ object.propietor.logo.url }}' class='avatar avatar-60 photo' height='60' width='60' />
+						</div>
+						<span class="black">{{ object.propietor.name }}</span><br/>Teléfono: {{ object.propietor.phone }}<div class="clear"></div>
+						<a href="http://www.templatesquare.com" target="_blank">View Agent&acute;s Website</a><br/>
+						<a href="http://demowp.templatesquare.com/lighthouse/?post_type=property&authorid=2">Agent&acute;s Other Listings</a>
+											  </div>
+					 
+					</li>
+					
+					
+										
+					<li class="widget-container widget_search">
+						<h2 class="widget-title">Contact Agent</h2>
+												<form action="http://demowp.templatesquare.com/lighthouse/wp-content/themes/lighthouse/includes/property/agentform.php" id="contact-agent" method="post">
+							<fieldset>
+							<ul>
+								<li>
+									<label for="contactName">First Name:</label>
+									<input type="text" name="contactName" id="contactName" value="" class="required requiredField" size="21" />
+								</li>
+								<li>
+									<label for="contactName2">Last Name:</label>
+									<input type="text" name="contactName2" id="contactName2" value="" class="required requiredField" size="21" />
+								</li>
+							</ul>
+							<label for="email">Email:</label><br />
+							<input type="text" name="email" id="email" value="" class="required requiredField email" size="34" /><br />
+							<label for="commentsText">Message:</label><br />
+							<textarea name="comments" id="commentsText" rows="3" cols="37" class="required requiredField"></textarea>
+							<input type="submit" name="submit" class="button" value="submit"/>
+							<input type="hidden" name="submitted" id="submitted" value="true" />
+                            <input type="hidden" name="ltitle" id="ltitle" value="140 Spring Leaf Jacksonville North Carolina" />
+							<input type="hidden" name="emailto" id="emailto" value="luthfi@klikmart.com" />
+							</fieldset>
+							<div id="validateContainer">
+								<span class="error"></span>
+																																							</div>
+						</form>	
+																	
+					</li>
+					
+										
+					<li class="widget-container widget_text">
+						<h2 class="widget-title">Agent&acute;s Other Listings</h2><div class="property-list"><p><img src="http://demowp.templatesquare.com/lighthouse/files/2011/05/Untitled-61-300x178.jpg" alt="" />
+									<a href="http://demowp.templatesquare.com/lighthouse/property/160-richmond-street/"><span class="title">26 Cotton Crossing Savannah </span><br/> Georgia  <br/></a>
+									<span class="black">$ 250,000</span><br />
+									<small>4 beds, 3 baths, 2200 sqft</small>
+									</p><p><img src="http://demowp.templatesquare.com/lighthouse/files/2011/05/Untitled-10-300x178.jpg" alt="" />
+									<a href="http://demowp.templatesquare.com/lighthouse/property/196-royal-bluff-road/"><span class="title">196 Royal Bluff Rd Jacksonville</span><br/> North Carolina  <br/></a>
+									<span class="black">$ 80,000</span><br />
+									<small>5 beds, 3 baths, 5200 sqft</small>
+									</p></div>					</li>
+				</ul>
+				<div class="widget-area">
+			
+
+              <ul><li id="ts-property-search-3" class="widget-container widget_ts_property_search">			  	<h2 class="widget-title">Property Search</h2>                        						<form id="search" name="searchform" method="get" action="http://demowp.templatesquare.com/lighthouse">
+						<div id="searchMain">
+                                                <div style="display:none;">
+                        <input type="search" id="s" name="s" title="Search Property" placeholder="Search Property" value="search" />
+                        </div>
+                        <div class="advselectcont">
+                            <label for="advlisttype">
+                                Listing Type :<br />
+                                <select name="advlisttype" id="advlisttype" class="advselect">
+                                	<option value="">-Choose Type-</option>
+									                                        <option value="For Sale"  />For Sale</option>
+                                                                            <option value=" For Rent"  /> For Rent</option>
+                                                                            <option value=" For Lease"  /> For Lease</option>
+                                                                            <option value=" Auction"  /> Auction</option>
+                                                                    </select>
+                            </label>
+                        </div>
+                        <div class="advselectcont">
+                            <label for="advproptype">
+                                Property Type : <br />
+                                <select name="advproptype" id="advproptype" class="advselect">
+                                	<option value="">-Choose Type-</option>
+									                                        <option value="Single Family"  />Single Family</option>
+                                                                            <option value=" Multi Family"  /> Multi Family</option>
+                                                                            <option value=" Condo or Townhome"  /> Condo or Townhome</option>
+                                                                            <option value=" Commercial"  /> Commercial</option>
+                                                                            <option value=" Lands and Lots"  /> Lands and Lots</option>
+                                                                    </select>
+                            </label>
+                        </div>
+                        <div class="clear"></div>
+                        <label for="advcity">
+                        	City : <br />
+                        	<input type="text" id="advcity" name="advcity" class="txtlong" value="" />
+                        </label>
+                        <br />
+                        <div id="advstatecont">
+                        <label for="advstate">
+                        	State : <br />
+                        	<input type="text" id="advstate" name="advstate" value="" />
+                        </label>
+                        </div>
+                        <div id="advzipcodecont">
+                        <label for="advzipcode">
+                        	Zip Code : <br />
+                        	<input type="text" id="advzipcode" name="advzipcode" value="" />
+                        </label>
+                        </div>
+                        <div class="clear"></div>
+                        	Price : <br />
+                        	<input type="text" id="advprice1" name="advprice1" class="txtadvprice" value="" />
+                            to                            <input type="text" id="advprice2" name="advprice2" class="txtadvprice" value="" />
+						<br />
+                        <div id="advbedcont">
+                        <label for="advbed">
+                        	Bedroom(s) : <br />
+                            <select name="advbed" id="advbed" class="advselect">
+							                            	<option value="1" >1+</option>
+                                                        	<option value="2" >2+</option>
+                                                        	<option value="3" >3+</option>
+                                                        	<option value="4" >4+</option>
+                                                        	<option value="5" >5+</option>
+                                                        </select>
+                        </label>
+                        </div>
+                        <div id="advbathcont">
+                        <label for="advbath">
+                        	Bathroom(s) : <br />
+                            <select name="advbath" id="advbath" class="advselect">
+							                            	<option value="1"  >1+</option>
+                                                        	<option value="2"  >2+</option>
+                                                        	<option value="3"  >3+</option>
+                                                        	<option value="4"  >4+</option>
+                                                        	<option value="5"  >5+</option>
+                                                        </select>
+                        </label>
+                        </div>
+                        <div class="clear"></div>
+                        <br />
+                        <input type="hidden" name="post_type" value="property" />
+						<button type="submit" value="search" id="searchsubmit">Search</button><br/>
+						</div>
+						</form>   
+           </li></ul>        		
+
+              <ul><li id="ts-property-tag-3" class="widget-container widget_ts_property_tag">			  	<h2 class="widget-title">Property Tag</h2><a href='http://demowp.templatesquare.com/lighthouse/propertytag/exotic/' class='tag-link-25' title='1 topic' style='font-size: 8pt;'>Exotic</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/for-sale/' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>For Sale</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/highway/' class='tag-link-23' title='1 topic' style='font-size: 8pt;'>Highway</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/minimalist/' class='tag-link-6' title='4 topics' style='font-size: 22pt;'>Minimalist</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/pool-view/' class='tag-link-24' title='1 topic' style='font-size: 8pt;'>Pool View</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/private-spa/' class='tag-link-20' title='1 topic' style='font-size: 8pt;'>Private Spa</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/security/' class='tag-link-21' title='1 topic' style='font-size: 8pt;'>Security</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/single-family/' class='tag-link-22' title='1 topic' style='font-size: 8pt;'>Single Family</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/stucco/' class='tag-link-19' title='1 topic' style='font-size: 8pt;'>Stucco</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/villa/' class='tag-link-17' title='3 topics' style='font-size: 18.5pt;'>villa</a>           </li></ul>        <ul><li id="nav_menu-7" class="widget-container widget_nav_menu"><h2 class="widget-title">Information</h2><div class="menu-helpmenu-container"><ul id="menu-helpmenu" class="menu"><li id="menu-item-402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402"><a href="#">Help and FAQs</a></li>
+<li id="menu-item-403" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-403"><a href="#">Home Price</a></li>
+<li id="menu-item-404" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-404"><a href="#">Market View</a></li>
+<li id="menu-item-590" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-590"><a href="#">Free Credit Report</a></li>
+<li id="menu-item-591" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-591"><a href="#">Local Info</a></li>
+<li id="menu-item-592" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-592"><a href="#">Buying 101</a></li>
+<li id="menu-item-593" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-593"><a href="#">Closing and Beyond</a></li>
+</ul></div></li></ul><ul><li id="text-8" class="widget-container widget_text"><h2 class="widget-title">Our Capabilities</h2>			<div class="textwidget"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at magna ornare justo pharetra congue sed et elit. Nunc lacinia ultricies iaculis.</p>
+						<img src="http://demowp.templatesquare.com/demoimages/img-lighthouse/img2.jpg" alt="" class="alignnone" />
+						<p>Aenean vulputate facilisis urna et adipiscing. In sollicitudin tellus sit amet dolor fringilla ullamcorper.</p>
+						<ul>
+							<li><a href="#">Resources</a></li>
+							<li><a href="#">House Remodeling</a></li>
+							<li><a href="#">Luxury Homes</a></li>
+							<li><a href="#">Find a Contractor</a></li>
+						</ul></div>
+		</li></ul></div>
+            </div><!-- end #sidebar -->
+			</div><!-- end #sidebar_right -->
+			<div class="clear"></div>
+		</div><!-- end #maincontent -->
+	</div><!-- end #centercolumn -->
+
+{% endblock %}

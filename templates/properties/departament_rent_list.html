@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}Departamentos en Alquiler{% endblock %}
+
+{% block centercolumn %}
+<div class="centercolumn">
+	<div id="maincontent">
+		<div id="content">
+			<h2 class="pagetitle">Departamentos <span class="colortext">en Alquiler</span></h2>
+			<div id="breadcrumbs">
+				<a href="{% url index %}">Inicio</a> &raquo; <strong>Departamentos en Alquiler</strong>
+			</div>	
+			{% for object in object_list %}
+			<div class="list_properties">
+				<div class="title_property2">
+					<h2><a href="{% url departament_rent_detail object.id object.address|slugify %}">{{ object.address }} - {{ object.get_location_display }}</a></h2>
+				</div>
+				<div class="clear"></div>
+				<div class="list_img">
+					<img width="130" height="85" src="{{ object.image0.url }}" class="attachment-property-list wp-post-image" alt="" title="" />
+				</div>
+				<div class="list_text">
+					<div class="avatar-right">
+						<img alt='' src="{{ object.propietor.logo.url }}" class='avatar avatar-70 photo' height='70' width='70' />
+					</div>
+				<strong>$ {{ object.price }}</strong><br/>5 Beds | 4 Baths | 5,000 sq ft sqft | 0,19 Acres acres<br /><br /> Commercial<br/>Brokered By: Demo User<br />
+				<span class="colortext">Open House: Mon 5/18, 2pm - 4pm</span>
+				</div>
+				<div class="clear"></div>
+			</div>
+			{% endfor %}
+			<div class='wp-pagenavi'>
+				<span class='pages'>Pagina 1 de 2</span>
+				<span class='current'>1</span>
+				<a href='http://demowp.templatesquare.com/lighthouse/properties/page/2/' class='page'>2</a>
+				<a href="http://demowp.templatesquare.com/lighthouse/properties/page/2/" class="nextpostslink">&raquo;</a>
+			</div>
+		</div>
+			
+		<div class="sidebar_right">
+			<div class="sidebar">
+				<div class="widget-area">
+					<ul>
+						<li id="ts-property-search-3" class="widget-container widget_ts_property_search">
+							<h2 class="widget-title">Buscar <span class="colortext">Propiedades</span></h2>
+								<form id="search" name="searchform" method="get" action="http://demowp.templatesquare.com/lighthouse">
+						<div id="searchMain">
+                                                <div style="display:none;">
+                        <input type="search" id="s" name="s" title="Search Property" placeholder="Search Property" value="search" />
+                        </div>
+                        <div class="advselectcont">
+                            <label for="advlisttype">
+                                Listing Type :<br />
+                                <select name="advlisttype" id="advlisttype" class="advselect">
+                                	<option value="">-Choose Type-</option>
+									                                        <option value="For Sale"  />For Sale</option>
+                                                                            <option value=" For Rent"  /> For Rent</option>
+                                                                            <option value=" For Lease"  /> For Lease</option>
+                                                                            <option value=" Auction"  /> Auction</option>
+                                                                    </select>
+                            </label>
+                        </div>
+                        <div class="advselectcont">
+                            <label for="advproptype">
+                                Property Type : <br />
+                                <select name="advproptype" id="advproptype" class="advselect">
+                                	<option value="">-Choose Type-</option>
+									                                        <option value="Single Family"  />Single Family</option>
+                                                                            <option value=" Multi Family"  /> Multi Family</option>
+                                                                            <option value=" Condo or Townhome"  /> Condo or Townhome</option>
+                                                                            <option value=" Commercial"  /> Commercial</option>
+                                                                            <option value=" Lands and Lots"  /> Lands and Lots</option>
+                                                                    </select>
+                            </label>
+                        </div>
+                        <div class="clear"></div>
+                        <label for="advcity">
+                        	City : <br />
+                        	<input type="text" id="advcity" name="advcity" class="txtlong" value="" />
+                        </label>
+                        <br />
+                        <div id="advstatecont">
+                        <label for="advstate">
+                        	State : <br />
+                        	<input type="text" id="advstate" name="advstate" value="" />
+                        </label>
+                        </div>
+                        <div id="advzipcodecont">
+                        <label for="advzipcode">
+                        	Zip Code : <br />
+                        	<input type="text" id="advzipcode" name="advzipcode" value="" />
+                        </label>
+                        </div>
+                        <div class="clear"></div>
+                        	Price : <br />
+                        	<input type="text" id="advprice1" name="advprice1" class="txtadvprice" value="" />
+                            to                            <input type="text" id="advprice2" name="advprice2" class="txtadvprice" value="" />
+						<br />
+                        <div id="advbedcont">
+                        <label for="advbed">
+                        	Bedroom(s) : <br />
+                            <select name="advbed" id="advbed" class="advselect">
+							                            	<option value="1" >1+</option>
+                                                        	<option value="2" >2+</option>
+                                                        	<option value="3" >3+</option>
+                                                        	<option value="4" >4+</option>
+                                                        	<option value="5" >5+</option>
+                                                        </select>
+                        </label>
+                        </div>
+                        <div id="advbathcont">
+                        <label for="advbath">
+                        	Bathroom(s) : <br />
+                            <select name="advbath" id="advbath" class="advselect">
+							                            	<option value="1"  >1+</option>
+                                                        	<option value="2"  >2+</option>
+                                                        	<option value="3"  >3+</option>
+                                                        	<option value="4"  >4+</option>
+                                                        	<option value="5"  >5+</option>
+                                                        </select>
+                        </label>
+                        </div>
+                        <div class="clear"></div>
+                        <br />
+                        <input type="hidden" name="post_type" value="property" />
+						<button type="submit" value="search" id="searchsubmit">Search</button><br/>
+						</div>
+						</form>   
+           </li></ul>        		
+
+              <ul><li id="ts-property-tag-3" class="widget-container widget_ts_property_tag">			  	<h2 class="widget-title">Property Tag</h2><a href='http://demowp.templatesquare.com/lighthouse/propertytag/exotic/' class='tag-link-25' title='1 topic' style='font-size: 8pt;'>Exotic</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/for-sale/' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>For Sale</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/highway/' class='tag-link-23' title='1 topic' style='font-size: 8pt;'>Highway</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/minimalist/' class='tag-link-6' title='4 topics' style='font-size: 22pt;'>Minimalist</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/pool-view/' class='tag-link-24' title='1 topic' style='font-size: 8pt;'>Pool View</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/private-spa/' class='tag-link-20' title='1 topic' style='font-size: 8pt;'>Private Spa</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/security/' class='tag-link-21' title='1 topic' style='font-size: 8pt;'>Security</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/single-family/' class='tag-link-22' title='1 topic' style='font-size: 8pt;'>Single Family</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/stucco/' class='tag-link-19' title='1 topic' style='font-size: 8pt;'>Stucco</a>
+<a href='http://demowp.templatesquare.com/lighthouse/propertytag/villa/' class='tag-link-17' title='3 topics' style='font-size: 18.5pt;'>villa</a>           </li></ul>        <ul><li id="nav_menu-7" class="widget-container widget_nav_menu"><h2 class="widget-title">Information</h2><div class="menu-helpmenu-container"><ul id="menu-helpmenu" class="menu"><li id="menu-item-402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402"><a href="#">Help and FAQs</a></li>
+<li id="menu-item-403" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-403"><a href="#">Home Price</a></li>
+<li id="menu-item-404" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-404"><a href="#">Market View</a></li>
+<li id="menu-item-590" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-590"><a href="#">Free Credit Report</a></li>
+<li id="menu-item-591" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-591"><a href="#">Local Info</a></li>
+<li id="menu-item-592" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-592"><a href="#">Buying 101</a></li>
+<li id="menu-item-593" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-593"><a href="#">Closing and Beyond</a></li>
+</ul></div></li></ul><ul><li id="text-8" class="widget-container widget_text"><h2 class="widget-title">Our Capabilities</h2>			<div class="textwidget"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at magna ornare justo pharetra congue sed et elit. Nunc lacinia ultricies iaculis.</p>
+						<img src="http://demowp.templatesquare.com/demoimages/img-lighthouse/img2.jpg" alt="" class="alignnone" />
+						<p>Aenean vulputate facilisis urna et adipiscing. In sollicitudin tellus sit amet dolor fringilla ullamcorper.</p>
+						<ul>
+							<li><a href="#">Resources</a></li>
+							<li><a href="#">House Remodeling</a></li>
+							<li><a href="#">Luxury Homes</a></li>
+							<li><a href="#">Find a Contractor</a></li>
+						</ul></div>
+		</li></ul></div>
+            </div><!-- end #sidebar -->
+			</div><!-- end #sidebar_right -->
+						
+			<div class="clear"></div>
+		</div><!-- end #maincontent -->
+	</div>
+{% endblock %}
